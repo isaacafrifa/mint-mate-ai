@@ -23,11 +23,3 @@ databaseChangeLog:
         - sqlFile:
             path: 003-seed-categories.sql
             relativeToChangelogFile: true
-  - changeSet:
-      id: 004
-      author: Afrifa
-      comment: Seed realistic transactions
-      changes:
-        - sqlFile:
-            path: 004-seed-transactions.sql
-            relativeToChangelogFile: true
