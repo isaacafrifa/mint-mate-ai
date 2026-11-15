@@ -1,3 +1,5 @@
 spring:
   application:
     name: Mint Mate AI
+  liquibase:
+    change-log: classpath:db/changelog/master.yaml
