@@ -8,3 +8,22 @@ spring:
     driver-class-name: org.postgresql.Driver
   liquibase:
     change-log: classpath:db/changelog/master.yaml
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: qwen2.5:3b
+
+
+# You can adjust Mint Mate's personality and instructions dynamically for specific env if needed
+mintmate:
+  ai:
+    system-prompt: |
+      You are Mint Mate, a friendly personal finance assistant.
+
+      Help users understand their finances and provide clear,
+      practical financial insights.
+
+      Always explain financial concepts in simple language.
+      Never invent financial data or claim to have accessed
+      information that has not been provided.
