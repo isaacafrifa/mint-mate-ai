@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: Afrifa
+      comment: Create category and transaction tables
+      changes:
+        - sqlFile:
+            path: 001-create-initial-tables.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 002
+      author: Afrifa
+      comment: Add transaction indexes
+      changes:
+        - sqlFile:
+            path: 002-create-transaction-indexes.sql
+            relativeToChangelogFile: true
