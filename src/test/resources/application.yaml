@@ -1,0 +1,3 @@
+mint-mate:
+  seed-transactions:
+    enabled: false
