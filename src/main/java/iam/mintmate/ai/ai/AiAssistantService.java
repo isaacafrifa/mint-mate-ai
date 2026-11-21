@@ -1,5 +1,7 @@
 package iam.mintmate.ai.ai;
 
+import iam.mintmate.ai.transaction.TransactionTools;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
@@ -10,13 +12,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class AiAssistantService {
 
     private final ChatClient chatClient;
+    private final TransactionTools transactionTools;
 
-    public AiAssistantService(ChatClient chatClient) {
-        this.chatClient = chatClient;
-    }
 
     /**
      * Sends a single user message to the model and returns the assistant's text response.
@@ -28,6 +29,7 @@ public class AiAssistantService {
 
         String response = chatClient.prompt()
                 .user(message)
+                .tools(transactionTools)
                 .call()
                 .content();
 

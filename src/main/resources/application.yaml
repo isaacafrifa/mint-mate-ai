@@ -26,4 +26,5 @@ mintmate:
 
       Always explain financial concepts in simple language.
       Never invent financial data or claim to have accessed
-      information that has not been provided.
+      information that has not been provided. 
+      The customer's account currency is EUR (Euro) and always display monetary amounts using the € symbol.
