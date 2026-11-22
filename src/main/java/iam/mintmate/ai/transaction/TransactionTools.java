@@ -86,8 +86,9 @@ public class TransactionTools {
             @ToolParam(description = "Explicit end date in ISO-8601 format, for example 2026-10-31. Must be provided together with startDate. Leave blank when using a relative period.")
             String endDate,
             @ToolParam(description = "Maximum number of transactions to return. Use 5 if not specified.")
-            int limit
+            Integer limit
     ) {
+        int effectiveLimit = limit == null ? 5 : limit;
         DateRange dateRange = dateRangeResolver.resolve(period, startDate, endDate);
 
         log.info(
@@ -95,13 +96,13 @@ public class TransactionTools {
                 period,
                 dateRange.startDate(),
                 dateRange.endDate(),
-                limit
+                effectiveLimit
         );
 
         return transactionService.findLargestTransactionsInDateRange(
                 dateRange.startDate(),
                 dateRange.endDate(),
-                limit
+                effectiveLimit
         );
     }
 }
